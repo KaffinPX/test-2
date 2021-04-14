@@ -10,8 +10,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: chmod +x ./.github/workflows/get_newest.sh
-      - name: script
+      - name: Get newest version
         run: ./.github/workflows/get_newest.sh
         shell: bash
-      - name: echo
-        run: echo ${{ env.newest_mc }}
+      - name: Clear old folders
+        run: rm -Rf client && rm -Rf server        
+      - name: Say version
+        run: echo "Downloading ${{ env.newest_mc }}"
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.0.0
+      - name: download & run decompiler
+        run: |
+          mkdir code
+          cd code
+          git clone https://github.com/hube12/DecompilerMC .
+          python3 main.py --mcversion snap --side server
+          ls -R
+        
