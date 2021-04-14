@@ -9,6 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: chmod +x ./.github/workflows/get_newest.sh
       - name: script
         run: ./.github/workflows/get_newest.sh
         shell: bash
