@@ -9,10 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: chmod +x ./.github/workflows/get_newest.sh
-      - name: Get newest version
-        run: ./.github/workflows/get_newest.sh
-        shell: bash
       - name: Clear old folders
         run: rm -Rf client && rm -Rf server        
       - name: Say version
@@ -31,4 +27,8 @@ jobs:
           git clone https://github.com/hube12/DecompilerMC .
           python3 main.py --mcversion snap --side server
           ls -R
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          path: .
         
