@@ -25,7 +25,7 @@ jobs:
           mkdir code
           cd code
           git clone https://github.com/KaffinPX/DecompilerMC .
-          python3 main.py --mcversion snap --side server
+          python3 main.py --mcversion snap --side server --decompiler fernflower
           ls -R
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.3
