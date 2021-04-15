@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir code
           cd code
-          git clone https://github.com/hube12/DecompilerMC .
+          git clone https://github.com/KaffinPX/DecompilerMC .
           python3 main.py --mcversion snap --side server
           ls -R
       - name: Upload a Build Artifact
