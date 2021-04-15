@@ -16,10 +16,10 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
       - name: Setup Java JDK
-        uses: actions/setup-java@v2.0.0
-        with:
-          java-version: 8
-          distribution: zulu
+      uses: actions/setup-java@v1.4.3
+      with:
+        java-version: 1.8
+        java-package: jre
       - name: download & run decompiler
         run: |
           mkdir code
